@@ -109,25 +109,27 @@
 				</div>
 				<div class="col-md-7 col-md-push-1 animate-box">
 					<div class="row">
+                        <form action="App/Messageri.php" method="post">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Nom">
+								<input name="nom" type="text" class="form-control" placeholder="Nom">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Email">
+								<input name="email" type="email" class="form-control" placeholder="Email">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+								<textarea name="message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<input type="submit" value="Envoyer" class="btn btn-primary btn-modify">
 							</div>
+                        </form>
 						</div>
 					</div>
 				</div>

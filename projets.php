@@ -113,6 +113,9 @@
 
                     $p5 = new ProjetsReview(5, 'Projet YDays', '2018 - 2019', 'images/projets-5.jpg');
                     echo $p5->createPreview('Projet de start-up visant à concevoir et attaquer un site web présentant des failles');
+
+                    $p5 = new ProjetsReview(5, 'Projet test', '2099 - 2099', 'images/projets-4.jpg');
+                    echo $p5->createPreview('Projet de test');
                 }
                 ?>
 			</div>

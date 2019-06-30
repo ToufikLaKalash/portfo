@@ -38,7 +38,9 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
-	<!-- Modernizr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
+        <!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
@@ -64,7 +66,6 @@
                                 <li><a href="projets.php">Projets</a></li>
                                 <li class="active"><a href="présentation.php">Présentation</a></li>
                                 <li><a href="contact.php">Contact</a></li>
-                                <li><a href="admin.php">Admin</a></li>
                             </ul>
                         </div>
                     </div>
@@ -81,8 +82,8 @@
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
 				   				<div class="slider-text-inner text-center">
-				   					<h1>About</h1>
-										<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
+				   					<h1>Présentation</h1>
+										<h2>Une petite présentation de mon parcours professionnel et de mes compétences</h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -94,30 +95,29 @@
 		<div id="fh5co-about">
 			<div class="row animate-box">
 				<div class="col-md-6 col-md-offset-3 text-center heading-section">
-					<h3>Our History</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					<h3>Parcours professionnel</h3>
+					<p>Voici une brève présentation de mes activités ces dernières années.</p>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1 text-center animate-box">
-					<p><img src="images/cover_bg_3.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive"></p>
-				</div>
-				<div class="col-md-8 col-md-offset-2 text-center animate-box">
-					<div class="about-desc">
-						<h3>Hi! I'm Kathy</h3>
-						<p>I am a French Designer. Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet. Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-						<p>
-							<ul class="fh5co-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="#"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</p>
-					</div>
-				</div>
+                <?php
+                require "App/Exp.php";
+                $stage = new Exp(1);
+                echo $stage->createExp();
+                ?>
 			</div>
+            <hr>
+            <div class="row animate-box">
+                <div class="col-md-6 col-md-offset-3 text-center heading-section">
+                    <h3>Compétences</h3>
+                    <p>Voici une présentation de mes compétences dans le domaine informatique</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <canvas id="chart"></canvas>
+            </div>
 		</div>
 	</div><!-- END container-wrap -->
 
@@ -145,6 +145,7 @@
                         <li><a href="projets.php">Projets</a></li>
                         <li><a href="présentation.php">Présentation</a></li>
                         <li><a href="contact.php">Contact</a></li>
+                        <li><a href="admin.php">Admin</a></li>
                     </ul>
                 </div>
 
@@ -198,6 +199,46 @@
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+    <script>
+        let ctx = document.getElementById("chart").getContext('2d');
+        let chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["HTML5", "CSS3", "JS", "PHP", "SQL", "C", "Gestion de projet"],
+                datasets: [{
+                    label: '% de maitrise',
+                    data: [90, 60, 80, 80, 85, 50, 55],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 
 	</body>
 </html>
